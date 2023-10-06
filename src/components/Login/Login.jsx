@@ -40,7 +40,7 @@ const Login = () => {
                     </div>
                   </div>
                 </form>
-                <p className="mt-8">Don't have an account? <Link to='/register' className="cursor-pointer text-sm text-blue-600">Register Here</Link></p>
+                <p className="mt-8">Don't have an account? <Link to='/register' className="cursor-pointer text-sm text-blue-600 hover:underline hover:text-red-600">Register Here</Link></p>
               </div>
             </div>
           </div>

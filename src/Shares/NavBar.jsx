@@ -16,7 +16,7 @@ const NavBar = () => {
   );
   return (
     <div>
-      <div className="navbar shadow-lg">
+      <div className="navbar shadow-lg border-b-2 border-b-gray-400">
         {" "}
         {/* Add the shadow-lg class */}
         <div className="navbar-start">

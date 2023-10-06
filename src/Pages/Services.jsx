@@ -1,6 +1,6 @@
 const Services = () => {
     return (
-        <div>
+        <div className="h-screen">
             this is services page
         </div>
     );

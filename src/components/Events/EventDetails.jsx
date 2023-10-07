@@ -1,9 +1,12 @@
+import { useParams } from "react-router-dom";
 
 
 const EventDetails = () => {
+    const {id} = useParams();
     return (
-        <div>
-            
+        <div className="max-w-7xl mx-auto h-screen">
+            <h1 className="text-gray-500 text-center font-semibold text-3xl mt-10">Event Details</h1>
+            <p>{id.title_name}</p>
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import user from "../assets/user.png";
 
 const NavBar = () => {
   const navLinks = (
@@ -57,8 +58,8 @@ const NavBar = () => {
         </div>
         <div className="navbar-end">
           <div className="avatar">
-            <div className="w-12">
-              <img src="https://i.ibb.co/74KRNzY/600px-Magicdelivery-gaming-logo-svg.png" />
+            <div className="w-12 mr-3">
+              <img src={user} />
             </div>
           </div>
           <div>

@@ -44,7 +44,13 @@ const NavBar = () => {
               {navLinks}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl"> Games and Tech</a>
+          <Link to='/' className="relative text-xl">
+  <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+    Games and Tech
+  </span>
+</Link>
+
+
         </div>
         <div className="navbar-center hidden lg:flex items-center">
           <ul className="menu menu-horizontal text-lg px-1">{navLinks}</ul>

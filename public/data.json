@@ -1,0 +1,50 @@
+[
+    {
+      "id": 1,
+      "event_title": "Tech Workshop",
+      "event_image": "https://i.ibb.co/8YLYnD5/Tech-workshop.jpg",
+      "event_price": 300,
+      "short_description": "Enhance your tech skills with our hands-on workshop!",
+      "full_description": "Join us for an immersive Tech Workshop where you can enhance your technical skills. Our expert instructors will guide you through the latest advancements in technology and provide hands-on experience. Whether you're a beginner or an expert, there's something valuable for everyone."
+    },
+    {
+      "id": 2,
+      "event_title": "Esports Tournament",
+      "event_image": "https://i.ibb.co/59t86X0/esoports-event.jpg",
+      "event_price": 250,
+      "short_description": "Compete in the ultimate Esports Tournament!",
+      "full_description": "Get ready to compete in the ultimate Esports Tournament. Whether you're a seasoned gamer or just getting started, our event offers thrilling competitions in various popular games. Win prizes, earn bragging rights, and be part of the gaming community."
+    },
+    {
+      "id": 3,
+      "event_title": "Game Arena Event",
+      "event_image": "https://i.ibb.co/Wvz5rcK/Game-arena-event.jpg",
+      "event_price": 120,
+      "short_description": "Experience the excitement of our Game Arena Event!",
+      "full_description": "Step into the world of gaming excitement at our Game Arena Event. With a wide range of gaming consoles and PC setups, you can immerse yourself in your favorite games or try something new. Challenge friends, make new ones, and enjoy hours of non-stop gaming action."
+    },
+    {
+      "id": 4,
+      "event_title": "Tech Career Fair",
+      "event_image": "https://i.ibb.co/cwJc5mM/Tech-Career-Fair.jpg",
+      "event_price": 350,
+      "short_description": "Explore your tech career opportunities at our Career Fair!",
+      "full_description": "Join us at the Tech Career Fair to explore exciting opportunities in the tech industry. Connect with top tech companies, network with industry professionals, and discover the career path that's right for you. Don't miss this chance to kickstart your tech career."
+    },
+    {
+      "id": 5,
+      "event_title": "Robotics Showcase",
+      "event_image": "https://i.ibb.co/gTL6KVf/Robotics-Showcase.jpg",
+      "event_price": 500,
+      "short_description": "Witness the future of robotics at our Robotics Showcase!",
+      "full_description": "Experience the awe-inspiring world of robotics at our Robotics Showcase. From cutting-edge humanoid robots to autonomous drones, you'll witness the future of technology in action. Engage with robotics experts, learn about the latest innovations, and be part of this remarkable journey."
+    },
+    {
+      "id": 6,
+      "event_title": "Hackathon Challenge",
+      "event_image": "https://i.ibb.co/q1rZX39/Hackathons.jpg",
+      "event_price": 150,
+      "short_description": "Take on the Hackathon Challenge and bring your ideas to life!",
+      "full_description": "Are you up for the challenge? Join our Hackathon and bring your tech ideas to life. Collaborate with like-minded individuals, code, design, and innovate to solve real-world problems. Win prizes, gain recognition, and turn your passion into a tech masterpiece."
+    }
+  ]

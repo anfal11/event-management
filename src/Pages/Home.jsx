@@ -8,7 +8,7 @@ const Home = () => {
       <div className="relative">
         <img
           src="https://i.ibb.co/80ppDfS/308-name05322-jj-1600x867.jpg"
-          className="w-full opacity-25 h-[700px]"
+          className="w-full opacity-20 h-[700px]"
           alt=""
         />
 

@@ -3,10 +3,10 @@ import Home from "../Pages/Home";
 import ErrorPage from "../Pages/ErrorPage";
 import Root from "../Layout/Root";
 import About from "../Pages/About";
-import Services from "../Pages/Services";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import Events from "../components/Events/Events";
+import Gallery from "../Pages/Gallery";
 
 const router = createBrowserRouter([
     {
@@ -25,8 +25,8 @@ const router = createBrowserRouter([
           element: <About></About>,
         },
         {
-          path: "/services",
-          element: <Services />,
+          path: "/gallery",
+          element: <Gallery></Gallery>,
         },
         {
           path: "/login",

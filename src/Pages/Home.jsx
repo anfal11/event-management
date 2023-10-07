@@ -1,6 +1,6 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Events from "../components/Events/Events";
 AOS.init();
 
@@ -124,7 +124,59 @@ const Home = () => {
           data-aos-anchor="#example-anchor"
           data-aos-offset="500"
           data-aos-duration="500"
-        ></div>
+        >
+
+        <div className="max-w-7xl mx-auto">
+        
+        <section className="bg-gray-100 py-16">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-4xl font-bold text-center mb-8">
+      Customer Support & FAQ
+    </h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* FAQ Section */}
+      <div className="bg-white shadow rounded-lg p-6">
+        <h3 className="text-xl font-semibold mb-4">Frequently Asked Questions</h3>
+      
+        <div className="mb-2">
+          <Link to='/register'>
+          <button className="text-blue-500 font-semibold hover:underline focus:outline-none">
+            How do I create an account?
+          </button>
+          </Link>
+          <p className="text-gray-600">To create an account, go to the &apos;Sign Up&apos; page and follow the instructions.</p>
+        </div>
+        
+        <div className="mb-2">
+          <Link to='/login'>
+          <button className="text-blue-500 font-semibold hover:underline focus:outline-none">
+            How can I reset my password?
+          </button>
+          </Link>
+          <p className="text-gray-600">To reset your password, visit the &apos;Forgot Password&apos; page and follow the steps.</p>
+        </div>
+        
+      </div>
+      
+      {/* Contact Information Section */}
+      <div className="bg-white shadow rounded-lg p-6">
+        <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
+        <p className="text-gray-600">If you need further assistance, feel free to reach out to our support team:</p>
+        <p className="text-gray-600 mt-2">
+          Email: <a href="mailto:support@example.com" className="text-blue-500 hover:underline">ratulcse1@gmail.com</a>
+        </p>
+        <p className="text-gray-600 mt-2">
+          Phone: <a href="tel:+123456789" className="text-blue-500 hover:underline">+880 1722-928701</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        </div>
+
+        </div>
       </div>
     </div>
   );

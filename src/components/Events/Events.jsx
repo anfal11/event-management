@@ -1,15 +1,16 @@
-
+import PropTypes from 'prop-types';
 
 const Events = ({event}) => {
 
-    const {id, event_title, event_image, event_price, short_description, full_description} = event;
+    const {event_title, event_image, event_price, short_description} = event;
     return (
-        <div className="mt-4">
-            <div className="relative flex w-96 h-[420px] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+        <div className="mt-10">
+            <div className="relative flex w-full md:w-[350px] lg:w-[300px] xl:w-96 h-[420px] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
   <div className="relative mx-4 -mt-6 h-56 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
     <img
       src={event_image}
       alt="img-blur-shadow"
+      // eslint-disable-next-line react/no-unknown-property
       layout="fill"
     />
   </div>
@@ -21,7 +22,7 @@ const Events = ({event}) => {
       {short_description}
     </p>
     <p className="block font-sans text-base font-medium leading-relaxed text-inherit antialiased">
-      event_price: {event_price}$
+      Events Price: {event_price}$
     </p>
   </div>
   <div className="p-6 pt-0">
@@ -39,4 +40,9 @@ const Events = ({event}) => {
     );
 };
 
+
+Events.propTypes = {
+    event: PropTypes.object.isRequired
+    
+};
 export default Events;

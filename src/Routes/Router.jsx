@@ -7,6 +7,7 @@ import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import Events from "../components/Events/Events";
 import Gallery from "../Pages/Gallery";
+import EventDetails from "../components/Events/EventDetails";
 
 const router = createBrowserRouter([
     {
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
         {
           path: "/events",
           element: <Events />,
+          
+        },
+        {
+          path: "/events_details/:id",
+          element: <EventDetails />,
           
         },
 

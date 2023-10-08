@@ -5,7 +5,7 @@ import Root from "../Layout/Root";
 import About from "../Pages/About";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
-import Events from "../components/Events/Events";
+// import Events from "../components/Events/Events";
 import Gallery from "../Pages/Gallery";
 import EventDetails from "../components/Events/EventDetails";
 import PrivateRoute from "./PrivateRoute";
@@ -38,11 +38,11 @@ const router = createBrowserRouter([
           path: "/register",
           element: <Register />,
         },
-        {
-          path: "/events",
-          element: <Events />,
+        // {
+        //   path: "/events",
+        //   element: <Events />,
           
-        },
+        // },
         {
           path: "/events_details/:id",
           element: <PrivateRoute><EventDetails /></PrivateRoute>,

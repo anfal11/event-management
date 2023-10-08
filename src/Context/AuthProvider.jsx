@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from "firebase/auth";
 import app from "../Firebase/Firebase.config.js";
 
 export const AuthContext = createContext(null);
@@ -11,20 +11,21 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   
   const createUser = (email, password) => {
-    setLoading(true);
-    return createUserWithEmailAndPassword(auth, email, password)
-  }
-
-  const signIn = (email, password) => {
-    setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password);
-  }
-  const logOut = () => {
-    setLoading(true);
-    return signOut(auth);
-  }
-
-  const googleProvider = new GoogleAuthProvider();
+      setLoading(true);
+      return createUserWithEmailAndPassword(auth, email, password)
+    }
+    
+    const signIn = (email, password) => {
+        setLoading(true);
+        return signInWithEmailAndPassword(auth, email, password);
+    }
+    const logOut = () => {
+        setLoading(true);
+        return signOut(auth);
+    }
+    
+    
+    const googleProvider = new GoogleAuthProvider();
     
   const signInWithGoogle = () => {
     setLoading(true);
@@ -41,7 +42,14 @@ const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  console.log(user);
+
+  const userUpdateProfile = (name, photo) => {
+    setLoading(true);
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+  }
 
   const authInfo = {
     user,
@@ -50,6 +58,7 @@ const AuthProvider = ({ children }) => {
     signIn,
     signInWithGoogle,
     loading,
+    userUpdateProfile,
   };
   return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
 };

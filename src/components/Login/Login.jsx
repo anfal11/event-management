@@ -1,12 +1,15 @@
 import { useContext } from 'react';
 import {FcGoogle} from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+import toast from 'react-hot-toast';
 
 
 const Login = () => {
 
   const { signIn, signInWithGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -15,32 +18,34 @@ const Login = () => {
     const password = form.get('password');
 
     signIn(email, password)
-  .then(result => {
-    console.log(result.user);
+  .then(() => {
+    toast.success('User successfully logged in ');
+    navigate(location?.state ? location.state : '/');
   })
   .catch((error) => {
-    console.error(error.code, error.message); 
+    toast.error(error.message); 
   });
 
   }
 
   const handleGoogleLogin = () => {
-    
 
   signInWithGoogle()
-  .then((result) => {
-    console.log(result.user);
+  .then(() => {
+    toast.success('User successfully logged in');
+    navigate(location?.state ? location.state : '/');
   }).catch((error) => {
-    console.log(error.message);
+    toast.error(error.message);
   });
+
   }
 
 
   return (
     <div>
-      {/* Background image div */}
+      
       <div className="hidden md:block min-h-screen bg-no-repeat bg-cover bg-center" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1486520299386-6d106b22014b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80")' }}>
-        {/* Content is placed over the background image */}
+    
         <div className="md:flex md:justify-end">
           <div className="bg-white min-h-screen w-1/2 flex justify-center items-center">
             <div>
@@ -69,12 +74,12 @@ const Login = () => {
                 </div>
                 <div>
                   <button className="mt-4 mb-3 w-full bg-green-500 hover:bg-green-400 text-white py-2 rounded-md transition duration-100">Login now</button>
+                </div>
+              </form> 
                   <div className="flex space-x-2 justify-center items-center bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-md transition duration-100">
                     <FcGoogle />
                     <button onClick={handleGoogleLogin}>Or sign-in with Google</button>
                   </div>
-                </div>
-              </form> 
               <p className="mt-8">Don&apos;t have an account? <Link to='/register' className="cursor-pointer text-sm text-blue-600 hover:underline hover:text-red-600">Register Here</Link></p>
             </div>
           </div>
@@ -85,7 +90,7 @@ const Login = () => {
       <div className="md:hidden min-h-screen flex justify-center items-center">
         <div className="bg-white w-4/5 sm:w-3/5 md:w-2/5 lg:w-2/5 p-4">
          
-            {/* Form contents for small devices */}
+      
            
             <form onSubmit={handleLogin} className="px-6 py-8">
                 <div>
@@ -112,13 +117,13 @@ const Login = () => {
                 </div>
                 <div>
                   <button type='submit' className="mt-4 mb-3 w-full bg-green-500 hover:bg-green-400 text-white py-2 rounded-md transition duration-100">Login now</button>
-                  <div className="flex space-x-2 justify-center items-center bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-md transition duration-100">
-                    <FcGoogle />
-                    <button>Or sign-in with Google</button>
-                  </div>
                 </div>
             
           </form>
+                  <div className="flex space-x-2 justify-center items-center bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-md transition duration-100">
+                    <FcGoogle />
+                    <button onClick={handleGoogleLogin}>Or sign-in with Google</button>
+                  </div>
         </div>
       </div>
     </div>

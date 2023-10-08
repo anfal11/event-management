@@ -1,12 +1,13 @@
 /* eslint-disable react/no-unknown-property */
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import toast from "react-hot-toast";
 
 const Register = () => {
 
-  const { createUser } = useContext(AuthContext);
+  const { createUser , userUpdateProfile} = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleRegsiter = e => {
     e.preventDefault();
@@ -15,6 +16,7 @@ const Register = () => {
     const url = form.get('url');
     const email = form.get('email');
     const password = form.get('password');
+    
 
     if (password.length < 6) {
       toast.error('Password must be at least 6 characters');
@@ -23,19 +25,26 @@ const Register = () => {
       toast.error('Password must have at least one capital letter');
       return;
     }
-    else if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
+    else if (!/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password)) {
       toast.error('Password must have at least one special character');
       return;
     }
 
 
     createUser(email, password)
-    .then((result) => {
+    .then((res) => {
+      userUpdateProfile(name, url)
+      .then(() => {
+        toast.success('User created successfully', res);
+        navigate('/login');
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
       
-      console.log(result.user);
     })
     .catch((error) => {
-      console.log(error.message);
+      toast.error(error.message);
     });
   }
   return (
@@ -110,7 +119,7 @@ const Register = () => {
               </svg>
               <input
                 className="pl-2 outline-none border-none"
-                type="url"
+                type="text"
                 name="url"
                 required
                 placeholder="Enter Your Photo URL"

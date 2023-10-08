@@ -23,7 +23,7 @@ const Events = ({event}) => {
       {short_description}
     </p>
     <p className="block font-sans text-base font-medium leading-relaxed text-inherit antialiased">
-      Events Price: {event_price}$
+      Event Value: {event_price}$
     </p>
   </div>
   <div className="p-6 pt-0">

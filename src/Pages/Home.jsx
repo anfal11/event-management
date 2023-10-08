@@ -123,11 +123,14 @@ const Home = () => {
           data-aos="fade-left"
           data-aos-anchor="#example-anchor"
           data-aos-offset="500"
-          data-aos-duration="500"
+          data-aos-duration="100"
         >
 
         <div className="max-w-7xl mx-auto">
-        
+        <div data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000">
+
         <section className="bg-gray-100 py-16">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 className="text-4xl font-bold text-center text-gray-500 mb-8">
@@ -172,7 +175,7 @@ const Home = () => {
     </div>
   </div>
 </section>
-
+</div>
 
         </div>
 

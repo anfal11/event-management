@@ -9,8 +9,8 @@ const Gallery = () => {
 
   return (
     <div className="h-screen max-w-7xl mx-auto">
-    <h1 className='text-gray-500 underline font-bold text-center my-10 text-4xl'> Please Click on the Image and Magic</h1>
-     <SlideshowLightbox className='container grid grid-cols-3 gap-2 mx-auto' showThumbnails={true}>
+    <h1 className='text-gray-500 underline pb-2 font-bold text-center my-10 text-4xl'> Please Click on the Image and Feel the Magic</h1>
+     <SlideshowLightbox className='container grid grid-cols1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-auto' showThumbnails={true}>
           <img className='w-full rounded' src='https://i.ibb.co/8YLYnD5/Tech-workshop.jpg' />
           <img className='w-full rounded' src='https://i.ibb.co/59t86X0/esoports-event.jpg' />  
           <img className='w-full rounded' src='https://i.ibb.co/Wvz5rcK/Game-arena-event.jpg' />

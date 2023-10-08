@@ -45,7 +45,7 @@ const NavBar = () => {
               {navLinks}
             </ul>
           </div>
-          <Link to='/' className="relative text-xl">
+          <Link to='/' className="relative text-base md:text-xl hidden md:block">
   <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
     Games and Tech
   </span>

@@ -29,7 +29,7 @@ const EventDetails = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto h-screen">
+    <div className="max-w-7xl mx-auto h-screen px-6">
       <h1 className="text-gray-500 text-center font-semibold text-3xl mt-32 lg:mt-10">
         Event Details
       </h1>

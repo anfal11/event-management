@@ -56,7 +56,9 @@ const Home = () => {
 </h1>
 <p className="text-xl text-gray-500 text-center mb-5">We provide our best services to make events more delightful.</p>
 
-        <div data-aos="flip-left">
+        <div data-aos="fade-right"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {events.map((event) => (
               <Events key={event.id} event={event} />

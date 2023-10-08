@@ -49,7 +49,7 @@ const Register = () => {
   }
   return (
     <div>
-      <div className="h-screen md:flex">
+      <div className="h-screen md:flex" data-aos="fade-up">
         <div className="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center hidden">
           <div>
             <h1 className="text-white font-bold text-4xl font-sans">

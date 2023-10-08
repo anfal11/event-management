@@ -1,3 +1,7 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
+
 const About = () => {
     return (
         <div className="h-screen mb-36 md:mb-0">
@@ -5,7 +9,8 @@ const About = () => {
             <section className="flex items-center bg-stone-100 xl:h-screen font-poppins dark:bg-gray-800 ">
         <div className="justify-center flex-1 max-w-6xl py-4 mx-auto lg:py-6 md:px-6">
             <div className="flex flex-wrap ">
-                <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0">
+              
+               <div className="w-full px-4 mb-10 lg:w-1/2 lg:mb-0"  data-aos="zoom-out-up">
                     <div className="relative lg:max-w-md">
                         <img src="https://i.postimg.cc/rF0MKfBV/pexels-andrea-piacquadio-3760263.jpg" alt="aboutimage"
                             className="relative z-10 object-cover w-full rounded h-96"/>
@@ -23,7 +28,8 @@ const About = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full px-6 mb-10 lg:w-1/2 lg:mb-0 ">
+            
+                <div className="w-full px-6 mb-10 lg:w-1/2 lg:mb-0 " data-aos="fade-down">
                     <div className="pl-4 mb-6 border-l-4 border-blue-500 ">
                         <span className="text-sm text-gray-600 uppercase dark:text-gray-400">Who we are?</span>
                         <h1 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl dark:text-gray-300">

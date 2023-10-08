@@ -51,9 +51,10 @@ const Home = () => {
       {/* card section */}
       <div className="max-w-7xl mx-auto">
        
-      <h1 className="text-2xl font-bold text-center my-10 ">
+      <h1 className="text-2xl font-bold text-center mt-10 mb-4 ">
   <span className="text-pink-500">✨</span> <span className="text-gray-500">Our Services</span> <span className="text-pink-500">✨</span>
 </h1>
+<p className="text-xl text-gray-500 text-center mb-5">We provide our best services to make events more delightful.</p>
 
         <div data-aos="flip-left">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

@@ -8,6 +8,7 @@ import Register from "../components/Register/Register";
 import Events from "../components/Events/Events";
 import Gallery from "../Pages/Gallery";
 import EventDetails from "../components/Events/EventDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
         },
         {
           path: "/events_details/:id",
-          element: <EventDetails />,
+          element: <PrivateRoute><EventDetails /></PrivateRoute>,
           
         },
 

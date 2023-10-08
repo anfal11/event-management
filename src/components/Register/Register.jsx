@@ -2,6 +2,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import toast from "react-hot-toast";
 
 const Register = () => {
 
@@ -14,6 +15,18 @@ const Register = () => {
     const url = form.get('url');
     const email = form.get('email');
     const password = form.get('password');
+
+    if (password.length < 6) {
+      toast.error('Password must be at least 6 characters');
+      return;
+    } else if (!/[A-Z]/.test(password)) {
+      toast.error('Password must have at least one capital letter');
+      return;
+    }
+    else if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
+      toast.error('Password must have at least one special character');
+      return;
+    }
 
 
     createUser(email, password)
@@ -52,7 +65,7 @@ const Register = () => {
 
         {/* form  */}
         <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
-          <form className="bg-white" onClick={handleRegsiter}>
+          <form className="bg-white" onSubmit={handleRegsiter}>
             <h1 className="text-gray-800 font-bold text-2xl mb-1">
               Hello Again!
             </h1>

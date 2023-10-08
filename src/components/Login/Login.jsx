@@ -1,15 +1,41 @@
+import { useContext } from 'react';
 import {FcGoogle} from 'react-icons/fc';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 
 
 const Login = () => {
 
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
+
   const handleLogin = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
-    console.log(form.get('email'));
+    const email = form.get('email');
+    const password = form.get('password');
+
+    signIn(email, password)
+  .then(result => {
+    console.log(result.user);
+  })
+  .catch((error) => {
+    console.error(error.code, error.message); 
+  });
 
   }
+
+  const handleGoogleLogin = () => {
+    
+
+  signInWithGoogle()
+  .then((result) => {
+    console.log(result.user);
+  }).catch((error) => {
+    console.log(error.message);
+  });
+  }
+
+
   return (
     <div>
       {/* Background image div */}
@@ -18,7 +44,7 @@ const Login = () => {
         <div className="md:flex md:justify-end">
           <div className="bg-white min-h-screen w-1/2 flex justify-center items-center">
             <div>
-            <form className="px-6 py-8" onClick={handleLogin}>
+            <form className="px-6 py-8" onSubmit={handleLogin}>
                 <div>
                   <span className="text-sm text-gray-900">Welcome back</span>
                   <h1 className="text-2xl font-bold">Login to your account</h1>
@@ -45,7 +71,7 @@ const Login = () => {
                   <button className="mt-4 mb-3 w-full bg-green-500 hover:bg-green-400 text-white py-2 rounded-md transition duration-100">Login now</button>
                   <div className="flex space-x-2 justify-center items-center bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-md transition duration-100">
                     <FcGoogle />
-                    <button>Or sign-in with Google</button>
+                    <button onClick={handleGoogleLogin}>Or sign-in with Google</button>
                   </div>
                 </div>
               </form> 
@@ -55,13 +81,13 @@ const Login = () => {
         </div>
       </div>
       
-      {/* Centered form on small screens */}
+   
       <div className="md:hidden min-h-screen flex justify-center items-center">
         <div className="bg-white w-4/5 sm:w-3/5 md:w-2/5 lg:w-2/5 p-4">
          
             {/* Form contents for small devices */}
            
-            <form className="px-6 py-8">
+            <form onSubmit={handleLogin} className="px-6 py-8">
                 <div>
                   <span className="text-sm text-gray-900">Welcome back</span>
                   <h1 className="text-2xl font-bold">Login to your account</h1>
@@ -85,7 +111,7 @@ const Login = () => {
                   <span className="text-sm text-blue-700 hover:underline cursor-pointer">Forgot password?</span>
                 </div>
                 <div>
-                  <button className="mt-4 mb-3 w-full bg-green-500 hover:bg-green-400 text-white py-2 rounded-md transition duration-100">Login now</button>
+                  <button type='submit' className="mt-4 mb-3 w-full bg-green-500 hover:bg-green-400 text-white py-2 rounded-md transition duration-100">Login now</button>
                   <div className="flex space-x-2 justify-center items-center bg-gray-700 hover:bg-gray-600 text-white py-2 rounded-md transition duration-100">
                     <FcGoogle />
                     <button>Or sign-in with Google</button>

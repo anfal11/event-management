@@ -32,13 +32,33 @@ const NavBar = () => {
   const navLinks = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+        className={({ isActive, isPending }) => 
+        isPending ? "pending" 
+        : 
+        isActive ? "border-b-2 border-b-pink-500" : ""} 
+        to="/">
+        Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/gallery">Gallery</NavLink>
+        <NavLink 
+         className={({ isActive, isPending }) => 
+        isPending ? "pending" 
+        : 
+        isActive ? "border-b-2 border-b-pink-500" : ""} 
+        to="/gallery">
+        Gallery
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/about">About Us</NavLink>
+        <NavLink  className={({ isActive, isPending }) => 
+        isPending ? "pending" 
+        : 
+        isActive ? "border-b-2 border-b-pink-500" : ""} 
+        to="/about">
+        About Us
+        </NavLink>
       </li>
     </>
   );
@@ -67,7 +87,7 @@ const NavBar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="gap-4 menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               {navLinks}
             </ul>
@@ -82,7 +102,7 @@ const NavBar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex items-center">
-          <ul className="menu menu-horizontal text-lg px-1">{navLinks}</ul>
+          <ul className="gap-4 menu-horizontal text-lg px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end">
           <div className="avatar">

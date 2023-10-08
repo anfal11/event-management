@@ -1,6 +1,18 @@
+/* eslint-disable react/no-unknown-property */
 import { Link } from "react-router-dom";
 
 const Register = () => {
+
+  const handleRegsiter = e => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const name = form.get('name');
+    const url = form.get('url');
+    const email = form.get('email');
+    const password = form.get('password');
+
+    console.log(name, url, email, password);
+  }
   return (
     <div>
       <div className="h-screen md:flex">
@@ -10,7 +22,7 @@ const Register = () => {
               Hello Tech fans,
             </h1>
             <p className="text-white mt-1">
-              The most popular Tech and gaming iste you're visiting, that's
+              The most popular Tech and gaming iste you&apos;re visiting, that&apos;s
               increadible.
             </p>
             <button
@@ -25,8 +37,10 @@ const Register = () => {
           <div className="absolute -top-40 -right-0 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
           <div className="absolute -top-20 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
         </div>
+
+        {/* form  */}
         <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
-          <form className="bg-white">
+          <form className="bg-white" onClick={handleRegsiter}>
             <h1 className="text-gray-800 font-bold text-2xl mb-1">
               Hello Again!
             </h1>
@@ -50,7 +64,7 @@ const Register = () => {
                 className="pl-2 outline-none border-none"
                 type="text"
                 name="name"
-                id=""
+                required
                 placeholder="Full name"
               />
             </div>
@@ -73,7 +87,7 @@ const Register = () => {
                 className="pl-2 outline-none border-none"
                 type="url"
                 name="url"
-                id=""
+                required
                 placeholder="Enter Your Photo URL"
               />
             </div>
@@ -96,7 +110,7 @@ const Register = () => {
                 className="pl-2 outline-none border-none"
                 type="email"
                 name="email"
-                id=""
+                required
                 placeholder="Enter Your Email Address"
               />
             </div>
@@ -115,9 +129,9 @@ const Register = () => {
               </svg>
               <input
                 className="pl-2 outline-none border-none"
-                type="text"
+                type="password"
                 name="password"
-                id=""
+                required
                 placeholder="Enter Your Password"
               />
             </div>

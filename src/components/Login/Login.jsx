@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom';
 
 
 const Login = () => {
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    console.log(form.get('email'));
+
+  }
   return (
     <div>
       {/* Background image div */}
@@ -11,7 +18,7 @@ const Login = () => {
         <div className="md:flex md:justify-end">
           <div className="bg-white min-h-screen w-1/2 flex justify-center items-center">
             <div>
-            <form className="px-6 py-8">
+            <form className="px-6 py-8" onClick={handleLogin}>
                 <div>
                   <span className="text-sm text-gray-900">Welcome back</span>
                   <h1 className="text-2xl font-bold">Login to your account</h1>
@@ -29,7 +36,7 @@ const Login = () => {
 
                 <div className="flex justify-between mt-2">
                   <div>
-                    <input className="cursor-pointer mr-2" type="radio" name="rememberme" />
+                    <input className="cursor-pointer mr-2" type="radio" name="rememberme" checked />
                     <span className="text-sm">Remember Me</span>
                   </div>
                   <span className="text-sm text-blue-700 hover:underline cursor-pointer">Forgot password?</span>
@@ -42,7 +49,7 @@ const Login = () => {
                   </div>
                 </div>
               </form> 
-              <p className="mt-8">Don't have an account? <Link to='/register' className="cursor-pointer text-sm text-blue-600 hover:underline hover:text-red-600">Register Here</Link></p>
+              <p className="mt-8">Don&apos;t have an account? <Link to='/register' className="cursor-pointer text-sm text-blue-600 hover:underline hover:text-red-600">Register Here</Link></p>
             </div>
           </div>
         </div>

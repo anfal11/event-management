@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import pic from "../assets/user.png";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthProvider";
@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [userProfile, setUserProfile] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     
@@ -22,6 +23,7 @@ const NavBar = () => {
     logOut()
     .then(() => {
       toast.success('user signed out');
+      navigate('/');
     })
     .catch((error) => {
       toast.error(error.message);
@@ -42,17 +44,18 @@ const NavBar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink 
-         className={({ isActive, isPending }) => 
+        <NavLink
+        className={({ isActive, isPending }) => 
         isPending ? "pending" 
         : 
         isActive ? "border-b-2 border-b-pink-500" : ""} 
-        to="/gallery">
-        Gallery
+        to="/register">
+        Register
         </NavLink>
       </li>
+
       <li>
-        <NavLink  className={({ isActive, isPending }) => 
+       <NavLink  className={({ isActive, isPending }) => 
         isPending ? "pending" 
         : 
         isActive ? "border-b-2 border-b-pink-500" : ""} 
@@ -60,6 +63,32 @@ const NavBar = () => {
         About Us
         </NavLink>
       </li>
+
+      <li>
+        {
+          user && <NavLink 
+         className={({ isActive, isPending }) => 
+        isPending ? "pending" 
+        : 
+        isActive ? "border-b-2 border-b-pink-500" : ""} 
+        to="/gallery">
+        Gallery
+        </NavLink>
+        }
+      </li>
+      <li>
+        {
+          user && <NavLink 
+         className={({ isActive, isPending }) => 
+        isPending ? "pending" 
+        : 
+        isActive ? "border-b-2 border-b-pink-500" : ""} 
+        to="/profile">
+        User Profile
+        </NavLink>
+        }
+      </li>
+
     </>
   );
   return (

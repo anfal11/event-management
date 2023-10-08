@@ -1,7 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import user from "../assets/user.png";
+import { useContext } from "react";
+import { AuthContext } from "../Context/AuthProvider";
 
 const NavBar = () => {
+  const { logOut } = useContext(AuthContext);
   const navLinks = (
     <>
       <li>
@@ -45,13 +48,14 @@ const NavBar = () => {
               {navLinks}
             </ul>
           </div>
-          <Link to='/' className="relative text-base md:text-xl hidden md:block">
-  <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-    Games and Tech
-  </span>
-</Link>
-
-
+          <Link
+            to="/"
+            className="relative text-base md:text-xl hidden md:block"
+          >
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+              Games and Tech
+            </span>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex items-center">
           <ul className="menu menu-horizontal text-lg px-1">{navLinks}</ul>
@@ -63,9 +67,9 @@ const NavBar = () => {
             </div>
           </div>
           <div>
-          <Link to="/login" className="btn">
-            Log In
-          </Link>
+            <Link to="/login" className="btn">
+              Log In
+            </Link>
           </div>
         </div>
       </div>

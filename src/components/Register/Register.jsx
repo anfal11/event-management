@@ -1,7 +1,11 @@
 /* eslint-disable react/no-unknown-property */
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const Register = () => {
+
+  const { createUser } = useContext(AuthContext);
 
   const handleRegsiter = e => {
     e.preventDefault();
@@ -11,7 +15,15 @@ const Register = () => {
     const email = form.get('email');
     const password = form.get('password');
 
-    console.log(name, url, email, password);
+
+    createUser(email, password)
+    .then((result) => {
+      
+      console.log(result.user);
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
   }
   return (
     <div>

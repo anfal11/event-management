@@ -1,0 +1,35 @@
+# Stage 1: Build
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
+
+# Build time এ env variables inject হবে
+ARG VITE_APIKEY
+ARG VITE_AUTHDOMAIN
+ARG VITE_PROJECTID
+ARG VITE_STORAGEBUCKET
+ARG VITE_MESSAGINGSENDERID
+ARG VITE_APPID
+
+ENV VITE_APIKEY=$VITE_APIKEY
+ENV VITE_AUTHDOMAIN=$VITE_AUTHDOMAIN
+ENV VITE_PROJECTID=$VITE_PROJECTID
+ENV VITE_STORAGEBUCKET=$VITE_STORAGEBUCKET
+ENV VITE_MESSAGINGSENDERID=$VITE_MESSAGINGSENDERID
+ENV VITE_APPID=$VITE_APPID
+
+RUN npm run build
+
+# Stage 2: Serve with Nginx
+FROM nginx:alpine
+
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

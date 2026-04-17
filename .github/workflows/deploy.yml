@@ -1,0 +1,39 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted  # তোমার WSL2 runner-এ চলবে
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: |
+          docker build \
+            --build-arg VITE_APIKEY=${{ secrets.VITE_APIKEY }} \
+            --build-arg VITE_AUTHDOMAIN=${{ secrets.VITE_AUTHDOMAIN }} \
+            --build-arg VITE_PROJECTID=${{ secrets.VITE_PROJECTID }} \
+            --build-arg VITE_STORAGEBUCKET=${{ secrets.VITE_STORAGEBUCKET }} \
+            --build-arg VITE_MESSAGINGSENDERID=${{ secrets.VITE_MESSAGINGSENDERID }} \
+            --build-arg VITE_APPID=${{ secrets.VITE_APPID }} \
+            -t event-management:latest .
+
+      - name: Stop old container
+        run: docker stop event-app || true && docker rm event-app || true
+
+      - name: Run new container
+        run: |
+          docker run -d \
+            --name event-app \
+            -p 3000:80 \
+            --restart unless-stopped \
+            event-management:latest
+
+      - name: Clean up old images
+        run: docker image prune -f

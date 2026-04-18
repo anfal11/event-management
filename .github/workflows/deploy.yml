@@ -38,8 +38,7 @@ jobs:
       - name: Deploy on WSL2
         run: |
           cd ~/app
-          # docker-compose pull
-          docker-compose up -d --build
+          docker compose up -d --build
 
       - name: Clean up old images
         run: docker image prune -f

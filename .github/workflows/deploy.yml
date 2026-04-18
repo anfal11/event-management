@@ -23,8 +23,7 @@ jobs:
 
       - name: Build and Push to Docker Hub
         run: |
-          docker buildx build \
-            --platform linux/amd64 \
+          docker build \
             --build-arg VITE_APIKEY=${{ secrets.VITE_APIKEY }} \
             --build-arg VITE_AUTHDOMAIN=${{ secrets.VITE_AUTHDOMAIN }} \
             --build-arg VITE_PROJECTID=${{ secrets.VITE_PROJECTID }} \
@@ -32,8 +31,8 @@ jobs:
             --build-arg VITE_MESSAGINGSENDERID=${{ secrets.VITE_MESSAGINGSENDERID }} \
             --build-arg VITE_APPID=${{ secrets.VITE_APPID }} \
             -t ${{ secrets.DOCKER_HUB_USERNAME }}/event-management:latest \
-            --push \
             .
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/event-management:latest
 
       - name: Deploy on WSL2
         run: |

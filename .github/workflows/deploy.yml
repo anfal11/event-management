@@ -27,13 +27,19 @@ jobs:
       - name: Stop old container
         run: docker stop event-app || true && docker rm event-app || true
 
-      - name: Run new container
+      # - name: Run new container
+      #   run: |
+      #     docker run -d \
+      #       --name event-app \
+      #       -p 3000:80 \
+      #       --restart unless-stopped \
+      #       event-management:latest
+
+      - name: Deploy on WSL2
         run: |
-          docker run -d \
-            --name event-app \
-            -p 3000:80 \
-            --restart unless-stopped \
-            event-management:latest
+          cd ~/app
+          # docker-compose pull
+          docker-compose up -d --build
 
       - name: Clean up old images
         run: docker image prune -f

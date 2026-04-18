@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Login to Docker Hub
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+        run: echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
 
       - name: Build and Push to Docker Hub
         run: |
@@ -25,8 +25,8 @@ jobs:
             --build-arg VITE_STORAGEBUCKET=${{ secrets.VITE_STORAGEBUCKET }} \
             --build-arg VITE_MESSAGINGSENDERID=${{ secrets.VITE_MESSAGINGSENDERID }} \
             --build-arg VITE_APPID=${{ secrets.VITE_APPID }} \
-            -t ${{ secrets.DOCKER_USERNAME }}/event-management:latest .
-          docker push ${{ secrets.DOCKER_USERNAME }}/event-management:latest
+            -t ${{ secrets.DOCKER_HUB_USERNAME }}/event-management:latest .
+          docker push ${{ secrets.DOCKER_HUB_PASSWORD }}/event-management:latest
 
       - name: Deploy on WSL2
         run: |
